@@ -5,5 +5,5 @@ spring:
                 - id: guides
                   predicates: 
                     - Path=/guides
-                    - After=2020-09-02T00:00:00:000-00:00[US/Central]
+                    - After=2020-10-11T01:01:01:123-45:67[US/Central]
                   uri: https://spring.io
