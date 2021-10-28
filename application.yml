@@ -5,4 +5,6 @@ spring:
                 - id: guides
                   predicates: 
                     - Path=/guides
+                  filters:
+                    - name: SCGWPreFilter
                   uri: https://spring.io
