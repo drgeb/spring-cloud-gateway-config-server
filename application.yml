@@ -12,7 +12,13 @@ spring:
                   uri: http://resource:9000
                   predicates:
                     - Path=/queueit/**
+                    
                   filters:
                     - TokenRelay=
                     - RemoveRequestHeader=Cookie
                     - StripPrefix=1
+                    - name: QueueIt
+                      args:
+                        baseMessage: My Custom QueueIt Message
+                        preLogger: true
+                        postLogger: true
