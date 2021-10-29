@@ -8,3 +8,10 @@ spring:
                   filters:
                     - name: SCGWPreFilter
                   uri: https://spring.io
+                - id: resource
+                  uri: http://resource:9000
+                  predicates:
+                    - Path=/queueit
+                  filters:
+                    - TokenRelay=
+                    - RemoveRequestHeader=Cookie
