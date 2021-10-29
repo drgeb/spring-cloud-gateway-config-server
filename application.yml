@@ -11,7 +11,7 @@ spring:
                 - id: resource
                   uri: http://resource:9000
                   predicates:
-                    - Path=/queueit
+                    - Path=/queueit/**
                   filters:
                     - TokenRelay=
                     - RemoveRequestHeader=Cookie
