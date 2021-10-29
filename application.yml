@@ -19,6 +19,6 @@ spring:
                     - StripPrefix=1
                     - name: QueueIt
                       args:
-                        baseMessage: ***** NEW QueueIt Message *****
+                        baseMessage: "***** NEW QueueIt Message *****"
                         preLogger: true
                         postLogger: true
