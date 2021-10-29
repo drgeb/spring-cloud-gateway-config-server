@@ -19,6 +19,6 @@ spring:
                     - StripPrefix=1
                     - name: QueueIt
                       args:
-                        baseMessage: My Custom QueueIt Message
+                        baseMessage: ***** NEW QueueIt Message *****
                         preLogger: true
                         postLogger: true
