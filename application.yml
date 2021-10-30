@@ -12,7 +12,7 @@ spring:
                   uri: http://resource:9000
                   predicates:
                     - Path=/queueit/**
-                    
+                    - QueueIt
                   filters:
                     - TokenRelay=
                     - RemoveRequestHeader=Cookie
