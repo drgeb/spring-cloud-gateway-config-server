@@ -1,24 +1,28 @@
 spring:
-    cloud:
-        gateway:
-            routes:
-                - id: guides
-                  predicates: 
-                    - Path=/guides
-                  filters:
-                    - name: SCGWPreFilter
-                  uri: https://spring.io
-                - id: resource
-                  uri: http://resource:9000
-                  predicates:
-                    - Path=/queueit/**
-                    - GoldenCustomer=true
-                  filters:
-                    - TokenRelay=
-                    - RemoveRequestHeader=Cookie
-                    - StripPrefix=1
-                    - name: QueueIt
-                      args:
-                        baseMessage: "***** NEW QueueIt Message *****"
-                        preLogger: true
-                        postLogger: true
+  cloud:
+    gateway:
+      routes:
+        - id: guides
+          predicates: 
+            - Path=/guides
+          filters:
+            - name: SCGWPreFilter
+          uri: https://spring.io
+        - id: resource
+            uri: http://resource:9000
+            predicates:
+              - Path=/queueit/**
+              - GoldenCustomer=true
+            filters:
+              - TokenRelay=
+              - RemoveRequestHeader=Cookie
+              - StripPrefix=1
+              - name: QueueIt
+                args:
+                  baseMessage: "***** NEW QueueIt Message *****"
+                  preLogger: true
+                  postLogger: true
+      - name: RequestRateLimiter
+          args:
+            redis-rate-limiter.replenishRate: 10
+            redis-rate-limiter.burstCapacity: 20
