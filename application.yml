@@ -22,7 +22,7 @@ spring:
                 baseMessage: "***** NEW QueueIt Message *****"
                 preLogger: true
                 postLogger: true
-        - name: RequestRateLimiter
-          args:
-            redis-rate-limiter.replenishRate: 10
-            redis-rate-limiter.burstCapacity: 20
+        # - name: RequestRateLimiter
+        #   args:
+        #     redis-rate-limiter.replenishRate: 10
+        #     redis-rate-limiter.burstCapacity: 20
