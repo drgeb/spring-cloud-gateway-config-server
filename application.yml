@@ -8,6 +8,17 @@ spring:
           filters:
             - name: SCGWPreFilter
           uri: https://spring.io
+        - id: tg
+          predicates: 
+            - Path=/guides
+          filters:
+            - name: SCGWPreFilter
+            - name: QueueIt
+              args:
+                baseMessage: "***** NEW QueueIt Message *****"
+                preLogger: true
+                postLogger: true
+          uri: https://spring.io
         - id: resource
           uri: lb://resource:9000
           predicates:
