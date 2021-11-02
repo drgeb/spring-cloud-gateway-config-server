@@ -10,7 +10,7 @@ spring:
           uri: https://spring.io
         - id: tg
           predicates: 
-            - Path=/guides
+            - Path=/tg
           filters:
             - name: SCGWPreFilter
             - name: QueueIt
