@@ -9,7 +9,7 @@ spring:
             - name: SCGWPreFilter
           uri: https://spring.io
         - id: resource
-          uri: http://resource:9000
+          uri: lb://resource:9000
           predicates:
             - Path=/queueit/**
             - GoldenCustomer=true
