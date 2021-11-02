@@ -11,6 +11,7 @@ spring:
         - id: tg
           predicates: 
             - Path=/tg
+            - QueueIt=true
           filters:
             - name: SCGWPreFilter
             - name: QueueIt
