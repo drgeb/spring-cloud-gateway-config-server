@@ -8,7 +8,7 @@ spring:
           filters:
             - name: SCGWPreFilter
           uri: https://spring.io
-        - id: tg
+        - id: tg_towaiting_room
           predicates: 
             - Path=/tg
             - QueueIt=true
@@ -16,7 +16,19 @@ spring:
             - name: SCGWPreFilter
             - name: QueueIt
               args:
-                baseMessage: "***** NEW QueueIt Message *****"
+                baseMessage: "***** QUEUEIT FILTER: TO WAITING ROOM *****"
+                preLogger: true
+                postLogger: true
+          uri: https://texasmutual.queue-it.net/
+        - id: tg
+          predicates: 
+            - Path=/tg
+            - QueueIt=false
+          filters:
+            - name: SCGWPreFilter
+            - name: QueueIt
+              args:
+                baseMessage: "***** QUEUEIT FILTER: To Regular Route *****"
                 preLogger: true
                 postLogger: true
           uri: https://spring.io
